@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f3eeeb;
+    background-image: url(/image/background.jpg);
     margin: 0;
     padding: 0;
     display: flex;
