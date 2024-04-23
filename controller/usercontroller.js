@@ -11,7 +11,18 @@ const userLoginPage = async(req,res)=>{
     }
 }
 
+const userRegisterPage = async(req,res)=>{
+    try{
+        res.render('user/register')
+    }catch(error){
+        console.error(error.message)
+    }
+}
+
+
+
 
 module.exports = {
-    userLoginPage
+    userLoginPage,
+    userRegisterPage
 }
