@@ -17,15 +17,15 @@
         <form>
             <div class="form-group">
                 
-                <input type="text" id="email" placeholder="Username">
+                <input type="text" id="username" placeholder="Username">
             </div>
             <div class="form-group">
                
-                <input type="text" id="" placeholder="Email">
+                <input type="text" id="email" placeholder="Email">
             </div>
             <div class="form-group">
               
-                <input type="text" id="" placeholder="Mobile">
+                <input type="text" id="mobile" placeholder="Mobile">
             </div>
             <div class="form-group">
              
@@ -33,10 +33,10 @@
             </div>
             <div class="form-group">
                 
-                <input type="password" id="password" placeholder="Confirm Password">
+                <input type="password" id="confirm password" placeholder="Confirm Password">
             </div>
             <div class="form-group">
-                <input type="submit" value="Login">
+                <input type="submit" value="REGISTER" onclick="register()">
             </div>
         </form>
       
@@ -49,3 +49,28 @@
    
 </body>
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    function register(){
+       const username = document.getElementById('username').value
+       const email = document.getElementById('email').value
+       const mobile = document.getElementById('mobile').value
+       const password = document.getElementById('password').value
+       const confimPassword = document.getElementById('confirm password').value
+       
+       $.ajax({
+
+            url:'',
+            method:'post',
+            data:{
+                username,
+                email,
+                mobile,
+                password,
+                confimPassword
+            }
+       })
+
+    }
+</script>
