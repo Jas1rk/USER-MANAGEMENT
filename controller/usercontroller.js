@@ -1,6 +1,15 @@
 const User = require('../model/usermodel')
 const bcrypt = require('bcrypt')
 
+
+const homePage = async(req,res)=>{
+    try{
+        res.render('user/home')
+    }catch(err){
+        console.error(err.message)
+    }
+}
+
 const userLoginPage = async(req,res)=>{
     try{
         res.render('user/login')
@@ -58,5 +67,6 @@ const userRegisterPost = async(req,res)=>{
 module.exports = {
     userLoginPage,
     userRegisterPage,
-    userRegisterPost
+    userRegisterPost,
+    homePage
 }

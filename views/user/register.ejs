@@ -12,6 +12,9 @@
     <div class="header">
         <h2 style="text-align: center;">To Enjoy With App Please Sign up</h2>
     </div>
+   
+     
+    
     <div class="login-container">
         <h3>REGISTER</h3>
         <form>
@@ -50,18 +53,20 @@
 </body>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     function register(){
-       const username = document.getElementById('username').value
-       const email = document.getElementById('email').value
-       const mobile = document.getElementById('mobile').value
-       const password = document.getElementById('password').value
-       const confimPassword = document.getElementById('confirm password').value
+       const username = document.getElementById('username').value.trim()
+       const email = document.getElementById('email').value.trim()
+       const mobile = document.getElementById('mobile').value.trim()
+       const password = document.getElementById('password').value.trim()
+       const confimPassword = document.getElementById('confirm password').value.trim()
+
+      
        
        $.ajax({
 
-            url:'',
+            url:'/user/register',
             method:'post',
             data:{
                 username,
@@ -69,6 +74,32 @@
                 mobile,
                 password,
                 confimPassword
+            },
+            success:(response)=>{
+                
+                  
+                 if(response.status === 'exist'){
+                   
+                    const Toast = Swal.mixin({
+                    toast: true,
+                    position: "center",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    console.log(Toast)
+                    Toast.fire({
+                    icon: "warning",
+                    title: "You have already registered"
+                    });
+                }else if(response.status === 'createdNewUser'){
+                    alert('jjjj')
+                    window.location.href = '/user/login'
+                }
             }
        })
 
