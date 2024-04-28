@@ -21,22 +21,27 @@
             <div class="form-group">
                 
                 <input type="text" id="username" placeholder="Username">
+                <p class="text text-danger" id="nameerror" style="color: red;"></p>
             </div>
             <div class="form-group">
                
                 <input type="text" id="email" placeholder="Email">
+                <p class="text text-danger" id="emailerror" style="color: red;"></p>
             </div>
             <div class="form-group">
               
                 <input type="text" id="mobile" placeholder="Mobile">
+                <p class="text text-danger" id="mobileerror" style="color: red;"></p>
             </div>
             <div class="form-group">
              
                 <input type="password" id="password" placeholder="Password">
+                <p class="text text-danger" id="passworderror" style="color: red;"></p>
             </div>
             <div class="form-group">
                 
                 <input type="password" id="confirm password" placeholder="Confirm Password">
+                <p class="text text-danger" id="confirmpassworderror" style="color: red;"></p>
             </div>
             <div class="form-group">
                 <input type="submit" value="REGISTER" onclick="register()">
@@ -62,6 +67,13 @@
        const password = document.getElementById('password').value.trim()
        const confimPassword = document.getElementById('confirm password').value.trim()
 
+        const usernameError = document.getElementById('nameerror')
+        const emailError = document.getElementById('emailerror')
+        const mobileError = document.getElementById('mobileerror')
+        const passwordError = document.getElementById('passworderror')
+        const confirmPasswordError = document.getElementById('confirmpassworderror')
+
+        usernameError.textContent = ""
       
        
        $.ajax({
@@ -97,7 +109,6 @@
                     title: "You have already registered"
                     });
                 }else if(response.status === 'createdNewUser'){
-                    alert('jjjj')
                     window.location.href = '/user/login'
                 }
             }
