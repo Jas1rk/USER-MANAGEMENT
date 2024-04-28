@@ -1,43 +1,42 @@
 const User = require('../model/usermodel')
 const bcrypt = require('bcrypt')
 
-module.exports = {
 
- homePage: async(req,res)=>{
+const homePage = async(req,res)=>{
     try{
         res.render('user/home')
     }catch(err){
         console.error(err.message)
     }
-},
+}
 
- userLoginPage: async(req,res)=>{
+const userLoginPage = async(req,res)=>{
     try{
         res.render('user/login')
 
     }catch(err){
         console.log(err.message)
     }
-},
+}
 
- userLoginPost : async(req,res)=>{
+const userLoginPost = async(req,res)=>{
     try{
 
     }catch(err){
         console.error(err.message)
     }
-},
+}
 
- userRegisterPage : async(req,res)=>{
+const userRegisterPage = async(req,res)=>{
     try{
         res.render('user/register')
     }catch(error){
         console.error(error.message)
     }
-},
+}
 
 
-   userRegisterPost : async(req,res)=>{
+const userRegisterPost = async(req,res)=>{
         try {
             const {username,email,mobile,password,confimPassword} = req.body
             const existUser = await User.findOne({email:email})
@@ -67,4 +66,15 @@ module.exports = {
     } 
 
     
+       
+    
+ 
+
+
+
+module.exports = {
+    userLoginPage,
+    userRegisterPage,
+    userRegisterPost,
+    homePage,
 }
