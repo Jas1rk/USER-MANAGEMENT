@@ -9,7 +9,7 @@ const adminController=require("../controller/admincontroller")
 
 
 
-module.exports=adminRoute
+module.exports = adminRoute
 
 
 
