@@ -21,6 +21,8 @@ const userLoginPage = async(req,res)=>{
 
 const userLoginPost = async(req,res)=>{
     try{
+        const {email , password} = req.body
+        console.log(email,password)
 
     }catch(err){
         console.error(err.message)
@@ -77,4 +79,5 @@ module.exports = {
     userRegisterPage,
     userRegisterPost,
     homePage,
+    userLoginPost
 }
